@@ -170,10 +170,10 @@ public final class PlaylistParser: Parser {
     guard var rawString = input.rawString else {
       throw ParsingError.invalidSource
     }
-    guard rawString.starts(with: filePrefix) else {
-      throw ParsingError.invalidSource
-    }
-    rawString.removeFirst(filePrefix.count)
+//     guard rawString.starts(with: filePrefix) else {
+//       throw ParsingError.invalidSource
+//     }
+//     rawString.removeFirst(filePrefix.count)
     return rawString
   }
 }
