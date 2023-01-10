@@ -36,7 +36,7 @@ final class MediaMetadataParser: Parser {
   }
 
   func parse(_ input: (line: Int, rawString: String)) throws -> Playlist.Media.Metadata {
-    let duration = try extractDuration(input)
+    let duration = -1
     let attributes = try attributesParser.parse(input.rawString)
     let name = try seasonEpisodeParser.parse(extractName(input.rawString)).name
     return (duration, attributes, name)
