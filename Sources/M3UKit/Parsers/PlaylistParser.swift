@@ -47,6 +47,7 @@ public final class PlaylistParser: Parser {
     let metadataParser = MediaMetadataParser()
     var lastMetadataLine: String?
     var lastURL: URL?
+    var lastURLString: String?
     var mediaMetadataParsingError: Error?
     var lineNumber = 0
 
@@ -55,14 +56,16 @@ public final class PlaylistParser: Parser {
         lastMetadataLine = line
       } else if let url = URL(string: line) {
         lastURL = url
+        lastURLString = line
       }
 
-      if let metadataLine = lastMetadataLine, let url = lastURL {
+      if let metadataLine = lastMetadataLine, let url = lastURL, let urlString = lastURLString {
         do {
           let metadata = try metadataParser.parse((lineNumber, metadataLine))
-          medias.append(.init(metadata: metadata, url: url))
+          medias.append(.init(metadata: metadata, url: url, urlString: urlString))
           lastMetadataLine = nil
           lastURL = nil
+          lastURLString = nil
         } catch {
           mediaMetadataParsingError = error
           stop = true
@@ -92,6 +95,7 @@ public final class PlaylistParser: Parser {
     let metadataParser = MediaMetadataParser()
     var lastMetadataLine: String?
     var lastURL: URL?
+    var lastURLString: String?
     var mediaMetadataParsingError: Error?
     var lineNumber = 0
 
@@ -100,14 +104,16 @@ public final class PlaylistParser: Parser {
         lastMetadataLine = line
       } else if let url = URL(string: line) {
         lastURL = url
+        lastURLString = line
       }
 
-      if let metadataLine = lastMetadataLine, let url = lastURL {
+      if let metadataLine = lastMetadataLine, let url = lastURL, let urlString = lastURLString {
         do {
           let metadata = try metadataParser.parse((lineNumber, metadataLine))
-          handler(.init(metadata: metadata, url: url))
+          handler(.init(metadata: metadata, url: url, urlString: urlString))
           lastMetadataLine = nil
           lastURL = nil
+          lastURLString = nil
         } catch {
           mediaMetadataParsingError = error
           stop = true
