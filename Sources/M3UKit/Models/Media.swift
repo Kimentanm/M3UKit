@@ -23,52 +23,57 @@
 
 import Foundation
 
-extension Playlist {
-  /// Object representing a media.
-  public struct Media: Equatable, Hashable, Codable {
-    typealias Metadata = (
-      duration: Int,
-      attributes: Attributes,
-      name: String
-    )
+public extension Playlist {
+    /// Object representing a media.
+    struct Media: Equatable, Hashable, Codable {
+        typealias Metadata = (
+            duration: Int,
+            attributes: Attributes,
+            name: String
+        )
 
-    init(metadata: Metadata, url: URL) {
-      self.init(
-        duration: metadata.duration,
-        attributes: metadata.attributes,
-        name: metadata.name,
-        url: url
-      )
+        init(metadata: Metadata, url: URL, urlString: String) {
+            self.init(
+                duration: metadata.duration,
+                attributes: metadata.attributes,
+                name: metadata.name,
+                url: url,
+                urlString: urlString
+            )
+        }
+
+        /// Create a new media object.
+        /// - Parameters:
+        ///   - duration: duration.
+        ///   - attributes: attributes.
+        ///   - name: name.
+        ///   - url: url.
+        public init(
+            duration: Int,
+            attributes: Attributes,
+            name: String,
+            url: URL,
+            urlString: String
+        ) {
+            self.duration = duration
+            self.attributes = attributes
+            self.name = name
+            self.url = url
+            self.urlString = urlString
+        }
+
+        /// Duration, Usually -1 for live stream content.
+        public var duration: Int
+
+        /// Attributes.
+        public var attributes: Attributes
+
+        /// Media name.
+        public var name: String
+
+        /// Media URL.
+        public var url: URL
+
+        public var urlString: String
     }
-
-    /// Create a new media object.
-    /// - Parameters:
-    ///   - duration: duration.
-    ///   - attributes: attributes.
-    ///   - name: name.
-    ///   - url: url.
-    public init(
-      duration: Int,
-      attributes: Attributes,
-      name: String,
-      url: URL
-    ) {
-      self.duration = duration
-      self.attributes = attributes
-      self.name = name
-      self.url = url
-    }
-
-    /// Duration, Usually -1 for live stream content.
-    public var duration: Int
-
-    /// Attributes.
-    public var attributes: Attributes
-
-    /// Media name.
-    public var name: String
-
-    /// Media URL.
-    public var url: URL
-  }
 }
