@@ -63,5 +63,5 @@ final class MediaMetadataParser: Parser {
   let seasonEpisodeParser = SeasonEpisodeParser()
   let attributesParser = MediaAttributesParser()
   let durationRegex: RegularExpression = #"#EXTINF:(\-*\d+)"#
-  let nameRegex: RegularExpression = #".*,(.+?)$"#
+  let nameRegex: RegularExpression = #".*?,(.+)$"#
 }
