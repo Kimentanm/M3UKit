@@ -57,6 +57,7 @@ final class MediaMetadataParser: Parser {
   }
 
   func extractName(_ input: String) -> String {
+    input.replacingOccurrences(of: "#EXTINF:-1,", with: "#EXTINF:-1 ")
     return nameRegex.firstMatch(in: input) ?? ""
   }
 
