@@ -57,11 +57,11 @@ final class MediaMetadataParser: Parser {
   }
 
   func extractName(_ input: String) -> String {
-    return nameRegex.firstMatch(in: input.replacingOccurrences(of: "#EXTINF:-1,", with: "#EXTINF:-1 ")) ?? ""
+    return nameRegex.firstMatch(in: input) ?? ""
   }
 
   let seasonEpisodeParser = SeasonEpisodeParser()
   let attributesParser = MediaAttributesParser()
   let durationRegex: RegularExpression = #"#EXTINF:(\-*\d+)"#
-  let nameRegex: RegularExpression = #".*?,(.+)$"#
+  let nameRegex: RegularExpression = #".*,(.+?)$"#
 }
