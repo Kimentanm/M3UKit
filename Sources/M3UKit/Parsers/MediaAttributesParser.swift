@@ -53,6 +53,12 @@ final class MediaAttributesParser: Parser {
     if let groupTitle = groupTitleRegex.firstMatch(in: input) {
       attributes.groupTitle = groupTitle
     }
+    if let httpUserAgent = httpUserAgentRegex.firstMatch(in: input) {
+      attributes.httpUserAgent = httpUserAgent
+    }
+    if let httpReferrer = httpReferrerRegex.firstMatch(in: input) {
+      attributes.httpReferrer = httpReferrer
+    }
     return attributes
   }
 
@@ -65,4 +71,6 @@ final class MediaAttributesParser: Parser {
   let channelNumberRegex: RegularExpression = #"tvg-chno=\"(.?|.+?)\""#
   let shiftRegex: RegularExpression = #"tvg-shift=\"(.?|.+?)\""#
   let groupTitleRegex: RegularExpression = #"group-title=\"(.?|.+?)\""#
+  let httpUserAgentRegex: RegularExpression = #"http-user-agent=\"(.?|.+?)\""#
+  let httpReferrerRegex: RegularExpression = #"http-referrer=\"(.?|.+?)\""#
 }

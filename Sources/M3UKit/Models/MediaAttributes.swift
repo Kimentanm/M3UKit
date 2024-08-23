@@ -34,6 +34,8 @@ extension Playlist.Media {
     ///   - channelNumber: channel number.
     ///   - shift: shift.
     ///   - groupTitle: group title.
+    ///   - httpUserAgent: http user agent
+    ///   - httpReferrer: http referrer
     ///   - seasonNumber: Season number (for TV shows).
     ///   - episodeNumber: Episode number (for TV shows).
     public init(
@@ -45,6 +47,8 @@ extension Playlist.Media {
       channelNumber: String? = nil,
       shift: String? = nil,
       groupTitle: String? = nil,
+      httpUserAgent: String? = nil,
+      httpReferrer: String? = nil,
       seasonNumber: Int? = nil,
       episodeNumber: Int? = nil
     ) {
@@ -56,6 +60,8 @@ extension Playlist.Media {
       self.channelNumber = channelNumber
       self.shift = shift
       self.groupTitle = groupTitle
+      self.httpUserAgent = httpUserAgent
+      self.httpReferrer = httpReferrer
       self.seasonNumber = seasonNumber
       self.episodeNumber = episodeNumber
     }
@@ -83,6 +89,10 @@ extension Playlist.Media {
 
     /// group-title.
     public var groupTitle: String?
+      
+    public var httpUserAgent: String?
+      
+    public var httpReferrer: String?
 
     /// Season number (for TV shows).
     public var seasonNumber: Int?
