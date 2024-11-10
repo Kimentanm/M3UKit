@@ -96,10 +96,6 @@ extension Playlist.Media {
 
     public var httpReferrer: String?
 
-    public var httpUserAgent: String?
-
-    public var httpReferrer: String?
-
     public var httpHeader: String?
 
     /// Season number (for TV shows).
