@@ -59,6 +59,9 @@ final class MediaAttributesParser: Parser {
     if let httpReferrer = httpReferrerRegex.firstMatch(in: input) {
       attributes.httpReferrer = httpReferrer
     }
+    if let httpHeader = httpHeaderRegex.firstMatch(in: input) {
+      attributes.httpHeader = httpHeader
+    }
     return attributes
   }
 
@@ -73,4 +76,5 @@ final class MediaAttributesParser: Parser {
   let groupTitleRegex: RegularExpression = #"group-title=\"(.?|.+?)\""#
   let httpUserAgentRegex: RegularExpression = #"http-user-agent=\"(.?|.+?)\""#
   let httpReferrerRegex: RegularExpression = #"http-referrer=\"(.?|.+?)\""#
+  let httpHeaderRegex: RegularExpression = #"http-header=\"(.?|.+?)\""#
 }

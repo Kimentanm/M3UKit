@@ -49,6 +49,7 @@ extension Playlist.Media {
       groupTitle: String? = nil,
       httpUserAgent: String? = nil,
       httpReferrer: String? = nil,
+      httpHeader: String? = nil,
       seasonNumber: Int? = nil,
       episodeNumber: Int? = nil
     ) {
@@ -62,6 +63,7 @@ extension Playlist.Media {
       self.groupTitle = groupTitle
       self.httpUserAgent = httpUserAgent
       self.httpReferrer = httpReferrer
+      self.httpHeader = httpHeader
       self.seasonNumber = seasonNumber
       self.episodeNumber = episodeNumber
     }
@@ -89,10 +91,16 @@ extension Playlist.Media {
 
     /// group-title.
     public var groupTitle: String?
-      
+
     public var httpUserAgent: String?
-      
+
     public var httpReferrer: String?
+
+    public var httpUserAgent: String?
+
+    public var httpReferrer: String?
+
+    public var httpHeader: String?
 
     /// Season number (for TV shows).
     public var seasonNumber: Int?
