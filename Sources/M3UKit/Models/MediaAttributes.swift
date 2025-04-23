@@ -36,6 +36,8 @@ extension Playlist.Media {
     ///   - groupTitle: group title.
     ///   - httpUserAgent: http user agent
     ///   - httpReferer: http referer
+    ///   - catchup: playback catchup
+    ///   - catchupSource: playback catchupSource
     ///   - seasonNumber: Season number (for TV shows).
     ///   - episodeNumber: Episode number (for TV shows).
     public init(
@@ -50,6 +52,8 @@ extension Playlist.Media {
       httpUserAgent: String? = nil,
       httpReferer: String? = nil,
       httpHeader: String? = nil,
+      catchup: String? = nil,
+      catchupSource: String? = nil,
       seasonNumber: Int? = nil,
       episodeNumber: Int? = nil
     ) {
@@ -64,6 +68,8 @@ extension Playlist.Media {
       self.httpUserAgent = httpUserAgent
       self.httpReferer = httpReferer
       self.httpHeader = httpHeader
+      self.catchup = httpReferer
+      self.catchupSource = httpHeader
       self.seasonNumber = seasonNumber
       self.episodeNumber = episodeNumber
     }
@@ -97,6 +103,10 @@ extension Playlist.Media {
     public var httpReferer: String?
 
     public var httpHeader: String?
+
+    public var catchup: String?
+
+    public var catchupSource: String?
 
     /// Season number (for TV shows).
     public var seasonNumber: Int?
