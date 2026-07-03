@@ -62,6 +62,12 @@ final class MediaAttributesParser: Parser {
     if let httpHeader = httpHeaderRegex.firstMatch(in: input) {
       attributes.httpHeader = httpHeader
     }
+    if let httpProxy = httpProxyRegex.firstMatch(in: input) {
+      attributes.httpProxy = httpProxy
+    }
+    if let socks5Proxy = socks5ProxyRegex.firstMatch(in: input) {
+      attributes.socks5Proxy = socks5Proxy
+    }
     if let catchup = catchupRegex.firstMatch(in: input) {
       attributes.catchup = catchup
     }
@@ -83,6 +89,8 @@ final class MediaAttributesParser: Parser {
   let httpUserAgentRegex: RegularExpression = #"http-user-agent=\"(.?|.+?)\""#
   let httpRefererRegex: RegularExpression = #"http-referer=\"(.?|.+?)\""#
   let httpHeaderRegex: RegularExpression = #"http-header=\"(.?|.+?)\""#
+  let httpProxyRegex: RegularExpression = #"http-proxy=\"(.?|.+?)\""#
+  let socks5ProxyRegex: RegularExpression = #"socks5-proxy=\"(.?|.+?)\""#
   let catchupRegex: RegularExpression = #"catchup=\"(.?|.+?)\""#
   let catchupSourceRegex: RegularExpression = #"catchup-source=\"(.?|.+?)\""#
 }

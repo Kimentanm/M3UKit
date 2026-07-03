@@ -36,6 +36,8 @@ extension Playlist.Media {
     ///   - groupTitle: group title.
     ///   - httpUserAgent: http user agent
     ///   - httpReferer: http referer
+    ///   - httpProxy: http proxy
+    ///   - socks5Proxy: socks5 proxy
     ///   - catchup: playback catchup
     ///   - catchupSource: playback catchupSource
     ///   - seasonNumber: Season number (for TV shows).
@@ -52,6 +54,8 @@ extension Playlist.Media {
       httpUserAgent: String? = nil,
       httpReferer: String? = nil,
       httpHeader: String? = nil,
+      httpProxy: String? = nil,
+      socks5Proxy: String? = nil,
       catchup: String? = nil,
       catchupSource: String? = nil,
       seasonNumber: Int? = nil,
@@ -68,8 +72,10 @@ extension Playlist.Media {
       self.httpUserAgent = httpUserAgent
       self.httpReferer = httpReferer
       self.httpHeader = httpHeader
-      self.catchup = httpReferer
-      self.catchupSource = httpHeader
+      self.httpProxy = httpProxy
+      self.socks5Proxy = socks5Proxy
+      self.catchup = catchup
+      self.catchupSource = catchupSource
       self.seasonNumber = seasonNumber
       self.episodeNumber = episodeNumber
     }
@@ -103,6 +109,12 @@ extension Playlist.Media {
     public var httpReferer: String?
 
     public var httpHeader: String?
+
+    /// http-proxy.
+    public var httpProxy: String?
+
+    /// socks5-proxy.
+    public var socks5Proxy: String?
 
     public var catchup: String?
 
